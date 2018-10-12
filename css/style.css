@@ -74,6 +74,7 @@ table{
 html, document{
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 body{
@@ -87,7 +88,12 @@ body{
 }
 
 .header{
+	position: fixed;
+	top: -20px;
+	left: 0px;
+	z-index: 1000;
 	height: 200px;
+	width: 100%;
 	background-image: url("/img/menuclouds.png");
 	background-position: left-top;
 	background-repeat: repeat-x;
@@ -117,6 +123,14 @@ body{
 	position: relative;
 	top: 20px;
 	left: 300px;
+	animation: cloudfloat 4000ms infinite;
+}
+
+@keyframes cloudfloat {
+  0% { top: 15px; }
+  40% { top: 22px; }
+  60% { top: 22px; }
+  100% { top: 15px; }
 }
 
 #menubar{
@@ -153,6 +167,8 @@ body{
 	background-color: white;
 	left: 50%;
 	margin-left: -450px;
+	padding-top: 200px;
+	padding-bottom: 40px;
 }
 
 .headingA{
@@ -168,7 +184,7 @@ body{
 	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
-	position: absolute;
+	position: fixed;
 	z-index: 100;
 	height: 200px;
 	width: 250px;
@@ -183,4 +199,117 @@ body{
     -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
     filter: blur(4px);	
 	pointer-events: none;
+}
+
+.footer{
+	height: 120px;
+	width: 100%;
+}
+
+.footbar{
+	height: 30px;
+	background-color: rgba(0,0,0,0.4);
+	width: 100%;
+}
+
+.footbarMenu{
+	display: flex;
+	height: 30px;
+	width: 900px;
+	left: 50%;
+	margin-left: -450px;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: row;
+	position: relative;
+}
+
+.infoLink{
+	margin: 25px;
+	line-height: 40px;
+	color: black;
+	font-size: 14pt;
+}
+
+#infoList{
+	text-align: center;
+}
+
+.articletitle{
+	
+	font-family: 'Work Sans', sans-serif;
+	position: relative; 
+	top: 40px;
+	font-size: 18pt;
+	width: 100%;
+	text-align: center;
+	
+}
+
+.articledate{
+	
+	font-family: 'Work Sans', sans-serif;
+	position: relative; 
+	font-size: 8pt;
+	top: 45px;	
+	width: 100%;
+	text-align: center;
+	
+}
+
+.articlebody{
+	
+	font-family: 'Work Sans', sans-serif;
+	position: relative; 
+	font-size: 12pt;
+	width: 100%;
+	top: 80px;
+	width: 700px;
+	left: 50%;
+	margin-left: -350px;
+	
+}
+
+input{
+	border-radius: 5px;	
+}
+
+#quote{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.inputlabel{
+	margin-bottom: 10px;
+}
+
+#PCBQTY{
+	width: 60px;
+}
+
+#PANELQTY{
+	width: 40px;	
+}
+
+#SMTQTY{
+	width: 40px;
+}
+
+#PTHQTY{
+	width: 40px;
+}
+
+.formdiv{
+	width: 400px;
+	margin-top: 10px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#calculate{
+	background-color: #ffcc00;
+	margin: 10px;
 }

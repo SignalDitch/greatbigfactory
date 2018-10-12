@@ -12,51 +12,33 @@ $( document ).ready(function(){
 	$('.menulink').css('left', leftMargin + 150 + "px");
 	var rightMargin = $(window).width() - leftMargin;
 	$('#userstatus').css('left', rightMargin - 150 + "px");	
-	
-	var page = getUrlParameter('section');
-	if(page=='about'){loadAbout();
-	}else if(page=='info'){loadInfo();
-	}else if(page=='quote'){loadQuote();}
 });
 
 $('#userModal').hide();
 $('#login').click(loginPop);
 $('#register').click(loginPop);
-$('#aboutlink').click(loadAbout);
-$('#infolink').click(loadInfo);
-$('#quotelink').click(loadQuote);
+loadArticle();
 
-function loadQuote(){
-	history.pushState(null, '', '/?section=quote');
-	$('.content').hide();
-	$('#quoteform').show();
-	$('.menulink').removeClass('youarehere');	
-	$('#quotelink').addClass('youarehere');		
-}
+$('#aboutlink').click(function(){location.replace("/?section=about");});
+$('#infolink').click(function(){location.replace("/?section=info");});
+$('#quotelink').click(function(){location.replace("/?section=quote");});
 
-function loadAbout(){
-	history.pushState(null, '', '/?section=about');
-	$('.content').hide();
-	$('#about').show();
-	$('.menulink').removeClass('youarehere');	
-	$('#aboutlink').addClass('youarehere');		
-}
+function loadArticle(){
 
-function loadInfo(){
-	history.pushState(null, '', '/?section=info');
-	$('.content').hide();
-	$('#info').show();
-	$('.menulink').removeClass('youarehere');	
-	$('#infolink').addClass('youarehere');	
-	$('#infoList').html('');
+	var contentID = getUrlParameter('article');
 
-	$.get( "api/assets/posts", function( data ) {
-		data.forEach(function(element){
-			var articleLink = "<a href=\"posts.html?article=" + element.id + "\" class=\"infoLink\">";
-			articleLink += element.title + "</a><br/>";
-			$('#infoList').append(articleLink);
-		});
+	$.get( "/api/assets/posts/"+contentID, function( data ) {
+		renderContent(data.title, data.publishedDate, data.content);
 	});
+}
+
+function renderContent(title, date, content){
+	
+	var converter = new showdown.Converter({tables: true, strikethrough: true});
+	$('#article').append("<div class=\"articletitle\">"+title+"</div>");
+	$('#article').append("<div class=\"articledate\">Published on "+date.split('T')[0]+"</div>");
+	$('#article').append("<div class=\"articlebody\">" + converter.makeHtml(content) + "</div>");
+	
 }
 
 function loginPop(){

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Great Big Factory</title>
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans|Fredoka+One" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<script
+	  src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>	  
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<div id="overlay">
+	
+		<div class="header">
+			<div id="userstatus">
+				<span id="login">login</span>
+				<span> | </span>
+				<span id="register">register</span>
+			</div>
+			<div id="menubar">
+				<span class="menulink" id="aboutlink">Our Service</span>
+				<span class="menulink" id="quotelink">Get A Quote</span>
+				<span class="menulink youarehere" id="infolink">Info Center</span>
+			</div>
+			<img id="logo" src="img/greatbigfactorycloudlogo.png" width="150px">
+		</div>
+		
+		<div class="content" id="article">
+		<a href="/?section=info">< back to info center</a><br/>
+		<!-- Loads from Remote -->
+		</div>
+		
+		<div class="footer">
+		
+			<div class="footbar">
+				<div class="footbarMenu">
+					<span style="font-family: 'Work Sans', sans-serif; color: white; font-size: 8pt;">&#169; Nick Poole 2018</span>
+					<span style="font-family: 'Work Sans', sans-serif; color: white; font-size: 8pt;"><a href="https://twitter.com/signalditch" target="_blank"><img src="img/twitter-24.png"></a></span>
+				</div>
+			</div>
+			
+			<div style="font-family: 'Work Sans', sans-serif; color: black; font-size: 8pt; text-align: center; position: relative; width: 300px; left: 50%; margin-left: -150px; top: 20px;">
+			<p>Great Big Factory is located at:</p>
+			<p>4919 Broadway St. Unit 38</p>
+			<p>Boulder, CO 80304</p>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+	<div id="userModal">
+		<div style="width: 100%; height: 26px; background-color: #ffcc00; color: black; font-family: 'Fredoka One', cursive; font-size: 16px; text-align: center; align-self: flex-start;"><p style="padding-top: 4px;">Login/Register</p></div>
+		<form style="width: 100%; text-align: center; align-self: center;">
+			Email:<br>
+			<input type="text" name="user" style=""><br>
+			Password:<br>
+			<input type="password" name="pass" style="margin-bottom: 10px;"><br>
+			<input type="button" name="login" value="Login">
+			<input type="button" name="register" value="Register">
+		</form>
+		<div style="font-size: 8pt; color: black; align-self: flex-end; margin: 5px;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
+	</div>
+
+</body>
+<script src="js/posts.js"></script>
+</html>
