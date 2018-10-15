@@ -181,6 +181,29 @@ function parseKiCad(bom){
 
 function parseEagle(bom){
 	
+	bomObject = [];
+	
+	bom.split("Orientation")[1].split("\n").forEach(function(line){
+		
+		var linesplit = line.replace(/\s+/g, ' ').split(' ');
+			
+		if(linesplit[0] != '' && linesplit[0] != undefined){
+			
+					bomObject.push({
+						
+						designator: linesplit[0].replace('"','').replace('"',''),
+						package: linesplit[2].replace('"','').replace('"',''),
+						value: linesplit[1].replace('"','').replace('"',''),
+						instruction: 'dnp'
+						
+					});
+		
+		}
+			
+	});
+	
+	renderQuoteForm();
+	
 }
 
 function renderQuoteForm(){
@@ -211,10 +234,6 @@ function renderQuoteForm(){
 			$('#bomLine_'+index).find('option[value="fid"]').attr('selected', 'selected');
 		}
 		
-		$('#bomLine_'+index).find('select').change(function(){
-			updateQuoteForm();
-		});
-		
 	});	
 
 	$('#quote').append('<div style=\'font-size: 16pt; font-weight: bold; margin-bottom: 15px; margin-top: 25px;\'>- Board Info -</div>');
@@ -227,7 +246,7 @@ function renderQuoteForm(){
 	$('#quote').append('<div style=\'font-size: 16pt; font-weight: bold; margin-bottom: 15px; margin-top: 25px;\'>- Order Details -</div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #ffcc00; font-weight: bold;\'> </div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
-	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\'><span style=\'font-weight: bold;\'>Board Format: </span><input type=\'radio\' name=\'boardformat\' value=\'individual\' checked=\'checked\'>Individual <input type=\'radio\' name=\'boardformat\' value=\'panelized\'>Panelized</div><div class=\'column3 disactivated\' id=\'boardsperpanelfield\'><span style=\'font-weight: bold;\'>Boards Per Panel </span><input type=\'number\' id=\'boardsperpanel\' style=\'margin-left: 10px;width: 30px;\' value=\'1\'></div></div>');
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\'><span style=\'font-weight: bold;\'>Board Format: </span><input type=\'radio\' name=\'boardformat\' id=\'individual\' checked=\'checked\'>Individual <input type=\'radio\' name=\'boardformat\' id=\'panelized\'>Panelized</div><div class=\'column3 disactivated\' id=\'boardsperpanelfield\'><span style=\'font-weight: bold;\'>Boards Per Panel </span><input type=\'number\' id=\'boardsperpanel\' style=\'margin-left: 10px;width: 30px;\' value=\'1\'></div></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\' id=\'boardqtyfield\'><span style=\'font-weight: bold;\'>Number of Boards </span><input type=\'number\' id=\'boardsqty\' style=\'margin-left: 10px;width: 30px;\' value=\'10\'></div><div class=\'column3 disactivated\' id=\'totalboardqty\' style=\'font-weight: bold;\'>Total Boards: 10</div></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
@@ -240,6 +259,14 @@ function renderQuoteForm(){
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 
 	$('#quote').append('<div id=\'calculateBtn\'>Calculate</div>');
+	
+	$('select').change(function(){
+		updateQuoteForm();
+	});
+
+	$('input').change(function(){
+		updateQuoteForm();
+	});
 	
 	updateQuoteForm();
 	
@@ -257,8 +284,6 @@ function updateQuoteForm(){
 	bomObject.forEach(function(element, index){
 		
 		var instr = $('#' + index + '_instructions').find(':selected').attr('value');
-		
-		console.log(instr);
 		
 		element.instruction = instr;
 		
@@ -283,6 +308,22 @@ function updateQuoteForm(){
 		$('#fiducials').html('At Least 2 Fiducials: &#x2714;');
 	}else{
 		$('#fiducials').html('At Least 2 Fiducials: &#x2716;');
+	}	
+	
+	if($('input[name="boardformat"]:checked').attr('id') == 'panelized'){
+		
+		$('#boardsperpanelfield').removeClass('disactivated');
+		$('#totalboardqty').removeClass('disactivated');
+		$('#totalboardqty').text('Total Boards: ' +  ($('#boardsperpanel').val() * $('#boardsqty').val()));
+		
+			
+	}else{
+
+		$('#boardsperpanelfield').addClass('disactivated');
+		$('#totalboardqty').addClass('disactivated');
+		$('#totalboardqty').text('Total Boards: ' +  $('#boardsqty').val());	
+		
 	}
+
 	
 }
