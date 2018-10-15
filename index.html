@@ -128,57 +128,21 @@
 		</div>
 		
 		<div class="content" id="info" hidden>
-			<p class="headingA" style="position: relative; width: 350px; left: 50%; margin-left: -175px;">Info Center</p>
+			<p class="headingA" style="position: relative; width: 100%; padding-top: 10px; padding-bottom: 10px; top: -40px;">Info Center</p>
 			<br/>
 			<div id="infoList"></div>
 		</div>
 		
 		<div class="content" id="quoteform" hidden>
-			<p class="headingA" style="position: relative; width: 350px; left: 50%; margin-left: -175px;">Instant Quote</p>
+			<p class="headingA" style="position: relative; width: 100%; padding-top: 10px; padding-bottom: 10px; top: -40px;">Get a Quote</p>
 			<br/>
 			<div id="quote">
 			
-				<div class="formdiv" style="background-color: #f8f8f8">
-					<p class="inputlabel">How Many Boards?</p>
-					<input id="PCBQTY" name="PCBQTY" type="number" min="0" value="0">
-				</div>
-				<div class="formdiv">
-					<p class="inputlabel">How will you supply the boards?</p>
-					<select name="PCBformat" id="PCBformat">
-						<option value="individual">Individual</option>
-						<option value="panelized">Panelized</option>
-					</select>
-				</div>
-				<div class="formdiv" style="background-color: #f8f8f8">
-					<p class="inputlabel">How Many Boards per Panel?</p>
-					<input id="PANELQTY" name="PANELQTY" type="number" min="0" value="0">
-				</div>
-				<div class="formdiv">
-					<p class="inputlabel">How Many Surface Mount Parts per Board?</p>
-					<input id="SMTQTY" name="SMTQTY" type="number" min="0" value="0">
-				</div>
-				<div class="formdiv" style="background-color: #f8f8f8">
-					<p class="inputlabel">How Many Through Hole Parts per Board?</p>
-					<input id="PTHQTY" name="PTHQTY" type="number" min="0" value="0">
-				</div>
-				<div class="formdiv">
-					<p class="inputlabel">Will you supply the parts?</p>
-					<select name="partsource" id="partsource">
-						<option value="yes">Yes, I'll supply all of them</option>
-						<option value="some">Yes, I'll supply some of them</option>
-						<option value="no">No, please source them for me</option>				
-					</select>
-				</div>
-				<div class="formdiv" style="background-color: #f8f8f8">
-					<p class="inputlabel">Will you supply a frameless steel stencil?</p>
-					<select name="stencil" id="stencil">
-						<option value="yes">Yes, I'll supply a stencil</option>
-						<option value="no">No, please order one for me</option>				
-					</select>
-				</div>
-				<div class="formdiv">
-					<input type="button" id="calculate" value="Calculate">
-				</div>
+				<div style="margin-bottom: 10px;" id="uploadtitle">Upload an Autodesk&reg; EAGLE&trade; partlist or KiCad BOM file</div>
+				<p style="font-size: 10pt; margin-bottom: 10px;">(If your design is panelized, upload the file for a single board)</p>
+				<div id="quoteupload"><input type="file" id="bomfile"></div>		
+				<p style="font-size: 10pt; margin-top: 10px;">Check out our tutorial on <a href="/posts.html?article=5bbb2ab3d9eecb0d80727961">How to Export a Partlist File</a></p>			
+				<p style="font-size: 10pt; margin-top: 10px;">If your project is in another format, no worries, email us at <a href="mailto:Support@GreatBigFactory.com">Support@GreatBigFactory.com</a></p>			
 			
 			</div>
 		</div>

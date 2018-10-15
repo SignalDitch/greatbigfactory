@@ -270,10 +270,6 @@ body{
 	
 }
 
-input{
-	border-radius: 5px;	
-}
-
 #quote{
 	display: flex;
 	flex-direction: column;
@@ -281,35 +277,75 @@ input{
 	width: 100%;
 }
 
-.inputlabel{
+#bomfile{
+	margin-left: 50px;	
+	margin-top: 10px;
+	margin-right: 50px;	
 	margin-bottom: 10px;
 }
 
-#PCBQTY{
-	width: 60px;
+#quoteupload{
+	border-radius: 10px;
+	background-color: #f8f8f8;
 }
 
-#PANELQTY{
-	width: 40px;	
-}
-
-#SMTQTY{
-	width: 40px;
-}
-
-#PTHQTY{
-	width: 40px;
-}
-
-.formdiv{
-	width: 400px;
-	margin-top: 10px;
+.bomLine{
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+	position: relative;
+	flex-direction: row;
+	align-items: center;	
+	height: 20px;
+	width: 100%;
+	font-size: 10pt;
 }
 
-#calculate{
+.column1{
+	position: absolute;
+	left: 10%;
+}
+
+.column2{
+	position: absolute;
+	left: 20%;
+}
+
+.column3{
+	position: absolute;
+	left: 50%;
+}
+
+.column4{
+	position: absolute;
+	left: 80%;
+}
+
+#smtplacements{
+	font-weight: bold;
+}
+
+#pthplacements{
+	font-weight: bold;
+}
+
+#dnpplacements{
+	font-weight: bold;
+}
+
+#fiducials{
+	font-weight: bold;
+}
+
+.disactivated{
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+#calculateBtn{
+	font-size: 12pt; 
+	font-weight: bold;
+	padding: 5px 10px 5px 10px;
+	text-align: center;
 	background-color: #ffcc00;
-	margin: 10px;
+	border: 1px solid black; 
+	cursor: pointer;
 }
