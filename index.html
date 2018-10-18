@@ -9,6 +9,8 @@
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>	
+	  <script src="js/cookies_min.js"></script>	 
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -19,11 +21,7 @@
 	<div id="overlay">
 	
 		<div class="header">
-			<div id="userstatus">
-				<span id="login">login</span>
-				<span> | </span>
-				<span id="register">register</span>
-			</div>
+			<div id="userstatus"><span id="login">login</span><span> | </span><span id="register">register</span></div><br/>
 			<div id="menubar">
 				<span class="menulink youarehere" id="aboutlink">Our Service</span>
 				<span class="menulink" id="quotelink">Get A Quote</span>
@@ -46,6 +44,7 @@
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;#Badgelife Badges and Add-Ons</p>
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;Limited Edition Products</p>
 				<p>&nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;Event/Workshop Exclusive Widgets</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&#8226;&nbsp;The Weird Stuff!</p>				
 			</div>
 			<br/>
 			<p class="headingA" style="position: relative; width: 350px; left: 50%; margin-left: -175px;">Put Us To Work, It's Easy!</p>
@@ -80,6 +79,7 @@
 							<p>&#8226;Component Size from 0201 to 38mm&#178;</p>	
 							<p>&#8226;Dozens of Smart Tape Feeders + Two Waffle Trays + Tube Shaker</p>	
 							<p>&#8226;Smart Vision System with Flying Cameras</p>	
+							<p>&#8226;Board/Panel Size up to 330 x 225mm (13" x 9")</p>	
 						</div>
 					</div>				
 					<img src="img/pnpsketch.png" height="200px">
@@ -170,13 +170,15 @@
 		<div style="width: 100%; height: 26px; background-color: #ffcc00; color: black; font-family: 'Fredoka One', cursive; font-size: 16px; text-align: center; align-self: flex-start;"><p style="padding-top: 4px;">Login/Register</p></div>
 		<form style="width: 100%; text-align: center; align-self: center;">
 			Email:<br>
-			<input type="text" name="user" style=""><br>
+			<input type="text" name="user" id="email" style=""><br>
 			Password:<br>
-			<input type="password" name="pass" style="margin-bottom: 10px;"><br>
-			<input type="button" name="login" value="Login">
-			<input type="button" name="register" value="Register">
+			<input type="password" name="pass" id="pass" style="margin-bottom: 2px;"><br>
+			<div style="font-size: 8pt; margin-bottom: 10px; text-decoration: underline;" id="forgotLink">forgot your password?</div>
+			<input type="button" name="login" id="loginButton" value="Login">
+			<input type="button" name="register" id="registerButton" value="Register">
 		</form>
-		<div style="font-size: 8pt; color: black; align-self: flex-end; margin: 5px;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
+		<div style="text-align: center; font-size: 8pt; margin-top: 5px; color: red; width: 100%;" id="authFeedback"></div>
+		<div style="font-size: 8pt; color: black; align-self: flex-end; text-align: center; margin-bottom: 5px; width: 100%;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
 	</div>
 
 </body>

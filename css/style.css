@@ -179,6 +179,20 @@ body{
 	background-color: #ffcc00;
 }
 
+#accountBtn{
+	font-size: 8pt;
+	cursor: pointer;
+}
+
+#logoutBtn{
+	font-size: 8pt;	
+	cursor: pointer;
+}
+
+#forgotLink{
+	cursor: pointer;
+}
+
 #userModal{
 	display: flex;
 	flex-wrap: wrap;
@@ -232,7 +246,10 @@ body{
 }
 
 #infoList{
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .articletitle{
@@ -348,4 +365,69 @@ body{
 	background-color: #ffcc00;
 	border: 1px solid black; 
 	cursor: pointer;
+}
+
+.quotetip{
+	font-family: 'Work Sans', sans-serif;
+	font-size: 8pt;
+}
+
+.postblock{
+	
+	position: relative;
+	width: 400px;
+	height: 70px;
+	background-color: #f8f8f8;
+	margin: 5px;
+	
+}
+
+.postblock-image{
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 60px;
+		height: 60px;
+		margin: 5px;
+}
+
+.postblock-title{
+	position: absolute;
+	left: 70px;
+	top: 5px;
+	font-weight: bold;
+}
+
+.postblock-date{
+	position: absolute;
+	bottom: 5px;
+	left: 70px;
+	font-size: 6pt;
+}
+
+.postblock-preview{
+	position: absolute;
+	left: 70px;
+	top: 25px;
+	font-size: 8pt;
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: #555;
+}
+
+/* mouse over link */
+a:hover {
+    color: black;
+}
+
+/* selected link */
+a:active {
+    color: #ffcc00;
 }

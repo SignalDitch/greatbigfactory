@@ -9,7 +9,8 @@
 	  src="https://code.jquery.com/jquery-3.3.1.min.js"
 	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 	  crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>	  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+	<script src="js/cookies_min.js"></script>	 
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -61,15 +62,18 @@
 		<div style="width: 100%; height: 26px; background-color: #ffcc00; color: black; font-family: 'Fredoka One', cursive; font-size: 16px; text-align: center; align-self: flex-start;"><p style="padding-top: 4px;">Login/Register</p></div>
 		<form style="width: 100%; text-align: center; align-self: center;">
 			Email:<br>
-			<input type="text" name="user" style=""><br>
+			<input type="text" name="user" id="email" style=""><br>
 			Password:<br>
-			<input type="password" name="pass" style="margin-bottom: 10px;"><br>
-			<input type="button" name="login" value="Login">
-			<input type="button" name="register" value="Register">
+			<input type="password" name="pass" id="pass" style="margin-bottom: 2px;"><br>
+			<div style="font-size: 8pt; margin-bottom: 10px; text-decoration: underline;" id="forgotLink">forgot your password?</div>
+			<input type="button" name="login" id="loginButton" value="Login">
+			<input type="button" name="register" id="registerButton" value="Register">
 		</form>
-		<div style="font-size: 8pt; color: black; align-self: flex-end; margin: 5px;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
+		<div style="text-align: center; font-size: 8pt; margin-top: 5px; color: red; width: 100%;" id="authFeedback"></div>
+		<div style="font-size: 8pt; color: black; align-self: flex-end; text-align: center; margin-bottom: 5px; width: 100%;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
 	</div>
 
 </body>
+<script src="js/logic.js"></script>
 <script src="js/posts.js"></script>
 </html>

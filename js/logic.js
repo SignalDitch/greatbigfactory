@@ -1,4 +1,5 @@
 var bomObject = new Array();
+var user;
 
 $(window).resize(function(){
 	var leftMargin = $(window).width()/4;
@@ -29,6 +30,12 @@ $('#infolink').click(loadInfo);
 $('#quotelink').click(loadQuote);
 $('#bomfile').change(bomReader);
 
+validateSession(docCookies.getItem('sessionID'));
+
+if(getUrlParameter('session')!=null){
+	validateSession(getUrlParameter('session'));
+}
+
 function loadQuote(){
 	history.pushState(null, '', '/?section=quote');
 	$('.content').hide();
@@ -55,11 +62,30 @@ function loadInfo(){
 
 	$.get( "api/assets/posts", function( data ) {
 		data.forEach(function(element){
-			var articleLink = "<a href=\"posts.html?article=" + element.id + "\" class=\"infoLink\">";
-			articleLink += element.title + "</a><br/>";
-			$('#infoList').append(articleLink);
+			renderPost(element);
 		});
 	});
+}
+
+function renderPost(post){
+	
+	var title = post.title;
+	var id = post.id;
+	var date = post.date.split('T')[0];
+	var img = '/img/'+post.img;
+	
+	var converter = new showdown.Converter({tables: true, strikethrough: true});
+	var preview = converter.makeHtml(post.prev);
+
+	var postBlock = '<div class=\'postblock\'>';
+	postBlock += '<div class=\'postblock-title\'><a href=\'/posts.html?article=' + id + '\'>' + title + '</a></div>';
+	postBlock += '<div class=\'postblock-date\'>published on ' + date + '</div>';
+	postBlock += '<div class=\'postblock-preview\'>' + preview + '...</div>';
+	postBlock += '<img class=\'postblock-image\' src=\'' + img + '\'>';
+	postBlock += '</div>'
+	
+	$('#infoList').append(postBlock);
+	
 }
 
 function loginPop(){
@@ -242,23 +268,28 @@ function renderQuoteForm(){
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\' id=\'smtplacements\'>SMT Placements per Board: 0</div><div class=\'column3\' id=\'pthplacements\'>PTH Placements per Board: 0</div></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\' id=\'dnpplacements\'>Unpopulated Footprints: 0</div><div class=\'column3\' id=\'fiducials\'>At Least 2 Fiducials: X</div></div>');
-
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><span class=\'quotetip column3\'>(Click <a href=\'http://greatbigfactory.com/posts.html?article=5bc52b19e27d042254ede589\' target=\'_blank\'>here</a> to learn about fiducials)</span></div>');
+	
 	$('#quote').append('<div style=\'font-size: 16pt; font-weight: bold; margin-bottom: 15px; margin-top: 25px;\'>- Order Details -</div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #ffcc00; font-weight: bold;\'> </div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\'><span style=\'font-weight: bold;\'>Board Format: </span><input type=\'radio\' name=\'boardformat\' id=\'individual\' checked=\'checked\'>Individual <input type=\'radio\' name=\'boardformat\' id=\'panelized\'>Panelized</div><div class=\'column3 disactivated\' id=\'boardsperpanelfield\'><span style=\'font-weight: bold;\'>Boards Per Panel </span><input type=\'number\' id=\'boardsperpanel\' style=\'margin-left: 10px;width: 30px;\' value=\'1\'></div></div>');
-	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
-	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\' id=\'boardqtyfield\'><span style=\'font-weight: bold;\'>Number of Boards </span><input type=\'number\' id=\'boardsqty\' style=\'margin-left: 10px;width: 30px;\' value=\'10\'></div><div class=\'column3 disactivated\' id=\'totalboardqty\' style=\'font-weight: bold;\'>Total Boards: 10</div></div>');
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><span class=\'quotetip column1\'>(You can click <a href=\'http://greatbigfactory.com/posts.html?article=5bc528c7e27d042254ede588\' target=\'_blank\'>here</a> to read up on panelization)</span></div>');
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'><div class=\'column1\'><span id=\'boardqtyfield\' style=\'font-weight: bold;\'>Number of Boards </span><input type=\'number\' id=\'boardsqty\' style=\'margin-left: 10px;width: 30px;\' value=\'10\'></div><div class=\'column3 disactivated\' id=\'totalboardqty\' style=\'font-weight: bold;\'>Total Boards: 10</div></div>');
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 	
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'></div>');	
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'><div class=\'column1\'><span style=\'font-weight: bold;\'>Will You Supply the Parts? </span><select style=\'margin-left: 10px;\'><option selected value=\'yes\'>Yes, I\'ll Supply All Parts</option><option value=\'some\'>Yes, I\'ll Supply Some Parts</option><option value=\'no\'>No, Please Source Parts For Me</option></select></div></div>');	
-	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'></div>');	
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'><span class=\'quotetip column1\'>(You might want to check out <a href=\'http://greatbigfactory.com/posts.html?article=5bc050a7a907a306b81a052d\' target=\'_blank\'>our tutorial on part sourcing</a>)</span></div>');	
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'><div class=\'column1\'><span style=\'font-weight: bold;\'>Will You Supply the Stencil? </span><select style=\'margin-left: 10px;\'><option selected value=\'yes\'>Yes, I\'ll Supply a Stencil</option><option value=\'no\'>No, Please Order a Stencil</option></select></div></div>');	
-	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'></div>');	
+	$('#quote').append('<div class=\'bomLine\' style=\'background-color: #f8f8f8;\'><span class=\'quotetip column1\'>(Also check out <a href=\'http://greatbigfactory.com/posts.html?article=5bc050caa907a306b81a052f\' target=\'_blank\'>our introduction to stencils</a>)</span></div>');	
 	$('#quote').append('<div class=\'bomLine\' style=\'background-color: white;\'></div>');
 
 	$('#quote').append('<div id=\'calculateBtn\'>Calculate</div>');
+	
+	$('#calculateBtn').click(function(){
+		alert('Sorry, Our Online Quote Form is Temporarily Down');
+	});
 	
 	$('select').change(function(){
 		updateQuoteForm();
@@ -314,6 +345,7 @@ function updateQuoteForm(){
 		
 		$('#boardsperpanelfield').removeClass('disactivated');
 		$('#totalboardqty').removeClass('disactivated');
+		$('#boardqtyfield').text('Number of Panels');
 		$('#totalboardqty').text('Total Boards: ' +  ($('#boardsperpanel').val() * $('#boardsqty').val()));
 		
 			
@@ -321,9 +353,152 @@ function updateQuoteForm(){
 
 		$('#boardsperpanelfield').addClass('disactivated');
 		$('#totalboardqty').addClass('disactivated');
+		$('#boardsperpanel').val(1)
+		$('#boardqtyfield').text('Number of Boards');
 		$('#totalboardqty').text('Total Boards: ' +  $('#boardsqty').val());	
 		
 	}
 
 	
 }
+
+
+$('#loginButton').click(function(){
+	
+	var authData = { email: $('#email').val().toString(), pwd: $('#pass').val().toString() }
+	
+	if(authData.email == ''){
+		
+		$('#email').attr('placeholder', 'Enter Your Email Address');
+		$('#pass').attr('placeholder', 'Enter Your Password');		
+		
+	}else{
+		
+		$.ajax({
+		  contentType: 'application/json',
+		  type: "POST",
+		  url: "api/users/authenticate",
+		  data: JSON.stringify(authData),
+		  success: function(data){
+			  login(data);
+		  },
+		  dataType: 'json'
+		});
+	
+	}
+	
+	
+});
+
+function login(data){
+	
+	if(data.status == true){
+		
+		docCookies.setItem("sessionID", data.sessionID, maxAgeToGMT(3600));
+		validateSession(data.sessionID);
+	
+	}else{
+		
+		switch(data.code){
+			
+			case '1': //bad password
+				$('#authFeedback').text('email and password don\'t match');
+			break;
+			
+			case '2': //no user
+				$('#authFeedback').text('email not found');
+			break;
+			
+		}
+		
+	}
+	
+}
+
+function validateSession(sessionID){
+	
+	$.ajax({
+		  type: "GET",
+		  url: "api/users/sessions/"+sessionID,
+		  success: function(data){
+			  user = data;
+			  if(user.nick != undefined){
+				  $('#userstatus').html('Hey, '+user.nick+'! <br/><span id=\'accountBtn\'>Go To Account</span> | <span id=\'logoutBtn\'>Logout</span>');
+				  $('#logoutBtn').click(function(){
+					  logout(docCookies.getItem('sessionID'));
+				  });
+				  loginUnpop();
+			  }else{
+				  
+			  }
+		  },
+		  dataType: 'json'
+		});
+	
+}
+
+function logout(sessionID){
+	
+	$.ajax({
+		  type: "GET",
+		  url: "api/users/sessions/drop/"+sessionID,
+		  success: function(data){
+			logout(docCookies.removeItem('sessionID'));
+		  },
+		  dataType: 'json'
+		});
+		
+	window.location.href = '/';
+		
+}
+
+$('#forgotLink').click(function(){
+	
+	$.ajax({
+	  type: "GET",
+	  url: "api/users/recover/"+$('#email').val().toString(),
+	  success: function(data){
+		if(data.status){
+			$('#authFeedback').text('a recovery email has been sent');
+		}else{
+			$('#authFeedback').text('there was a problem sending the recovery email');		
+		}
+	  },
+	  dataType: 'json'
+	});
+	
+});
+
+
+$('#registerButton').click(function(){
+	
+	
+	
+});
+
+function maxAgeToGMT (nMaxAge) {
+  return nMaxAge === Infinity ? "Fri, 31 Dec 9999 23:59:59 GMT" : (new Date(nMaxAge * 1e3 + Date.now())).toUTCString();
+}
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+
+//TODO
+/*
+- Password Recovery
+- Session Cookies
+- User Page
+	- Order history
+	- Submit for Quote
+	- Order Status
+	- Payment (PayPal Client Integration)
+- Online Quote Backend
+- Social Tags 
+- Info Center content
+- Info Center Styling
+*/
