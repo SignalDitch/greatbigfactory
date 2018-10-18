@@ -1,0 +1,14 @@
+{
+    "name": "Great Big Factory",
+    "short_name": "Great Big Factory",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffcc00",
+    "background_color": "#ffcc00",
+    "display": "standalone"
+}
