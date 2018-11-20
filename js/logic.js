@@ -23,6 +23,8 @@ $( document ).ready(function(){
 });
 
 $('#userModal').hide();
+$('#notifyModal').hide();
+$('.notifyButton').click(notifyPop);
 $('#login').click(loginPop);
 $('#register').click(loginPop);
 $('#aboutlink').click(loadAbout);
@@ -96,6 +98,16 @@ function loginPop(){
 function loginUnpop(){
 	$('#overlay').removeClass('blur');
 	$('#userModal').hide();
+}
+
+function notifyPop(){
+	$('#overlay').addClass('blur');
+	$('#notifyModal').show();
+}
+
+function notifyUnpop(){
+	$('#overlay').removeClass('blur');
+	$('#notifyModal').hide();
 }
 
 function login(){
@@ -459,10 +471,23 @@ $('#forgotLink').click(function(){
 	  url: "api/users/recover/"+$('#email').val().toString(),
 	  success: function(data){
 		if(data.status){
-			$('#authFeedback').text('a recovery email has been sent');
+			$('#authFeedback').text('A recovery email has been sent');
 		}else{
-			$('#authFeedback').text('there was a problem sending the recovery email');		
+			$('#authFeedback').text('There was a problem sending the recovery email');		
 		}
+	  },
+	  dataType: 'json'
+	});
+	
+});
+
+$('#notifySubmit').click(function(){
+	
+	$.ajax({
+	  type: "GET",
+	  url: "api/mailinglist/"+$('#notifyEmail').val().toString(),
+	  success: function(data){
+			$('#notifyFeedback').text(data.message);
 	  },
 	  dataType: 'json'
 	});
@@ -472,7 +497,35 @@ $('#forgotLink').click(function(){
 
 $('#registerButton').click(function(){
 	
-	
+	$.ajax({
+	  contentType: 'application/json',
+	  type: "POST",
+	  url: "api/users/register",
+	  data: JSON.stringify({email: $('#email').val().toString()}),
+	  success: function(data){
+		if(data.status){
+			$('#authFeedback').text('We sent you an email with your temporary password!');
+		}else{
+			
+			switch(data.code){
+				
+				case "1":
+				$('#authFeedback').text('An account already exists using this email address');
+				break;
+				
+				case "2":
+				$('#authFeedback').text('There was an unknown problem creating your account');
+				break;
+				
+				case "3":
+				$('#authFeedback').text('Our robot is having trouble sending emails, please try again later');
+				break;
+			}
+		}
+		
+	  },
+	  dataType: 'json'
+	});	
 	
 });
 
@@ -487,11 +540,8 @@ function getUrlParameter(name) {
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
 };
 
-
 //TODO
 /*
-- Password Recovery
-- Session Cookies
 - User Page
 	- Order history
 	- Submit for Quote
@@ -500,5 +550,4 @@ function getUrlParameter(name) {
 - Online Quote Backend
 - Social Tags 
 - Info Center content
-- Info Center Styling
 */

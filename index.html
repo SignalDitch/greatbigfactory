@@ -132,10 +132,22 @@
 					</div>
 				</div>					
 			</div>
+			</br>
+				<p class="headingA" style="position: relative; width: 350px; left: 50%; margin-left: -175px;">Grand Opening!</p>
+					<div style="position: relative; margin-top: 20px; width: 700px; left: 100px; line-height: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+						<p>We're currently finishing up work on the website as well as optimizations to our production line. To stay in the loop and get informed as soon as we're ready to accept orders, you can click the button below!</p>
+						<br/>
+						<div class="notifyButton">Get Notified</div>
+					</div>
 		</div>
 		
 		<div class="content" id="info" hidden>
 			<p class="headingA" style="position: relative; width: 100%; padding-top: 10px; padding-bottom: 10px; top: -40px;">Info Center</p>
+				<div class="quoteUnderConstruction floating">
+				<p>The Info Center is under construction!</p><br/>
+				<p>Click the "get notified" button to get an email alert when the site is complete!</p><br/>
+				<div class="notifyButton">Get Notified</div>
+				</div>
 			<br/>
 			<div id="infoList"></div>
 		</div>
@@ -145,6 +157,21 @@
 			<br/>
 			<div id="quote">
 			
+			
+				<div class="quoteUnderConstruction">
+					<p>The online quote backend is still under construction, but feel free to upload your file below for a preview of the quote submission form.</p><br/>
+					<p>If you would like to submit a job in the meantime, you can contact us at <a href="mailto:Support@GreatBigFactory.com">Support@GreatBigFactory.com</a></p><br/>
+					<p>Click the "get notified" button to get an email alert when the online quote system is complete!</p><br/>
+					<div class="notifyButton">Get Notified</div>
+					</div>
+				<p class="headingA" style="position: relative; width: 350px; margin-bottom: 20px;">Download Our Parts Library</p>	
+				<div style="margin-bottom: 10px;" id="uploadtitle">The online quote process goes smoother when you use our library</div>
+				<p style="font-size: 10pt; margin-bottom: 10px;">Our system will automatically recognize parts from these library files</p>
+				<div id="library-icons">
+				<div id="eagle-icon"><img src="img/eagle-icon.png" height="60px"><p>Autodesk&reg; EAGLE&trade;</p><p style="font-size: 10pt">(.lbr 272KB)</p></div><div id="kicad-icon"><img src="img/kicad-icon.png" height="60px"><p>KiCad</p><p style="font-size: 10pt">(.rar 20.8KB)</p></div>
+				</div>
+				<br/>
+				<p class="headingA" style="position: relative; width: 280px; margin-bottom: 20px; margin-top: 20px;">Upload Your Project</p>
 				<div style="margin-bottom: 10px;" id="uploadtitle">Upload an Autodesk&reg; EAGLE&trade; partlist or KiCad BOM file</div>
 				<p style="font-size: 10pt; margin-bottom: 10px;">(If your design is panelized, upload the file for a single board)</p>
 				<div id="quoteupload"><input type="file" id="bomfile"></div>		
@@ -186,6 +213,18 @@
 		</form>
 		<div style="text-align: center; font-size: 8pt; margin-top: 5px; color: red; width: 100%;" id="authFeedback"></div>
 		<div style="font-size: 8pt; color: black; align-self: flex-end; text-align: center; margin-bottom: 5px; width: 100%;"><a href="#" onclick="loginUnpop()">nevermind</a></div>
+	</div>
+	
+		<div id="notifyModal">
+		<div style="width: 100%; height: 26px; background-color: #ffcc00; color: black; font-family: 'Fredoka One', cursive; font-size: 16px; text-align: center; align-self: flex-start;"><p style="padding-top: 4px;">Get Email Notifications</p></div>
+		<p style="text-align: center; margin: 10px;">Enter your email to sign up for our Grand Opening mailing list!</p>
+		<br/><br/>
+		<form style="width: 100%; text-align: center; align-self: center;">
+			<input type="text" name="notifyemail" id="notifyEmail" style=""><br/><br/>
+			<input type="button" name="notifysubmit" id="notifySubmit" value="Stay Updated">
+		</form>
+		<div style="text-align: center; font-size: 8pt; margin-top: 5px; color: red; width: 100%;" id="notifyFeedback"></div>		
+		<div style="font-size: 8pt; color: black; align-self: flex-end; text-align: center; margin-bottom: 5px; width: 100%;"><a href="#" onclick="notifyUnpop()">close</a></div>
 	</div>
 
 </body>
