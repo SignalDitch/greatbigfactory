@@ -179,6 +179,14 @@ body{
 	background-color: #ffcc00;
 }
 
+.headingB{
+	font-family: 'Fredoka One', cursive;
+	font-size: 20pt; 
+	margin-top: 20px;
+	text-align: center;
+	background-color: #ffcc00;
+}
+
 #accountBtn{
 	font-size: 8pt;
 	cursor: pointer;
@@ -502,6 +510,7 @@ a:active {
 	margin-left: 20px;
 	margin-right: 20px;	
 	text-align: center;
+	cursor: pointer;
 }
 
 #kicad-icon{
@@ -509,4 +518,5 @@ a:active {
 	margin-left: 20px;
 	margin-right: 20px;		
 	text-align: center;
+	cursor: pointer;
 }

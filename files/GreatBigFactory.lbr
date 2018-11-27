@@ -3751,6 +3751,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="0"/>
 </technology>
 </technologies>
@@ -3769,6 +3770,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="10"/>
 </technology>
 </technologies>
@@ -3787,6 +3789,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="20"/>
 </technology>
 </technologies>
@@ -3805,6 +3808,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="33"/>
 </technology>
 </technologies>
@@ -3822,7 +3826,10 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+<attribute name="VALUE" value="68" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -3839,6 +3846,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="100"/>
 </technology>
 </technologies>
@@ -3857,6 +3865,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="330"/>
 </technology>
 </technologies>
@@ -3875,6 +3884,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="470"/>
 </technology>
 </technologies>
@@ -3893,6 +3903,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="1k"/>
 </technology>
 </technologies>
@@ -3911,6 +3922,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="2.2k"/>
 </technology>
 </technologies>
@@ -3929,6 +3941,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="4.7k"/>
 </technology>
 </technologies>
@@ -3947,6 +3960,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="10k"/>
 </technology>
 </technologies>
@@ -3965,6 +3979,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="47k"/>
 </technology>
 </technologies>
@@ -3983,6 +3998,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="100k"/>
 </technology>
 </technologies>
@@ -4001,6 +4017,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="1M"/>
 </technology>
 </technologies>
@@ -4019,6 +4036,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="0.1uF"/>
 </technology>
 </technologies>
@@ -4037,6 +4055,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="1.0uF"/>
 </technology>
 </technologies>
@@ -4055,6 +4074,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="2.2uF" constant="no"/>
 </technology>
 </technologies>
@@ -4073,6 +4093,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="4.7uF"/>
 </technology>
 </technologies>
@@ -4091,6 +4112,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="10uF"/>
 </technology>
 </technologies>
@@ -4109,6 +4131,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="18pF" constant="no"/>
 </technology>
 </technologies>
@@ -4127,6 +4150,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="100pF"/>
 </technology>
 </technologies>
@@ -4145,6 +4169,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="10uF"/>
 </technology>
 </technologies>
@@ -4162,7 +4187,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4178,7 +4205,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4194,7 +4223,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4211,6 +4242,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="32.768kHz"/>
 </technology>
 </technologies>
@@ -4232,7 +4264,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="VCC" pad="VDD"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="-5050" package="APA102-5050">
@@ -4245,7 +4279,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="VCC" pad="P4"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4264,6 +4300,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="WS2812B" constant="no"/>
 </technology>
 </technologies>
@@ -4282,6 +4319,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="1A/20V"/>
 </technology>
 </technologies>
@@ -4300,6 +4338,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="3.6V"/>
 </technology>
 </technologies>
@@ -4318,6 +4357,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="33nH/300mA/650mOhm"/>
 </technology>
 </technologies>
@@ -4337,6 +4377,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="2A/40V"/>
 </technology>
 </technologies>
@@ -4356,6 +4397,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="2A/40V"/>
 </technology>
 </technologies>
@@ -4375,6 +4417,7 @@ Switches electrical signals</description>
 </connects>
 <technologies>
 <technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
 <attribute name="VALUE" value="5.5x2.1mm Barrel" constant="no"/>
 </technology>
 </technologies>
@@ -4396,7 +4439,9 @@ Switches electrical signals</description>
 <connect gate="J1" pin="VBUS" pad="VBUS"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4417,7 +4462,9 @@ Switches electrical signals</description>
 <connect gate="J1" pin="VBUS" pad="VBUS1 VBUS2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4433,7 +4480,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="-SMD-5.2MM" package="TACTILE_SWITCH_SMD_5.2MM">
@@ -4442,7 +4491,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="3"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="-SMD-RIGHT-ANGLE" package="TACTILE_SWITCH_SMD_RIGHT_ANGLE">
@@ -4451,7 +4502,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4467,7 +4520,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="-" pad="2"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4483,7 +4538,9 @@ Switches electrical signals</description>
 <connect gate="G$1" pin="2" pad="1"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4499,7 +4556,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4508,7 +4567,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4517,7 +4578,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4533,7 +4596,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4542,7 +4607,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4551,7 +4618,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4567,7 +4636,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4576,7 +4647,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4585,7 +4658,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4601,7 +4676,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4610,7 +4687,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4619,7 +4698,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4635,7 +4716,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4644,7 +4727,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4653,7 +4738,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4669,7 +4756,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4678,7 +4767,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4687,7 +4778,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4703,7 +4796,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4712,7 +4807,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4721,7 +4818,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>
@@ -4737,7 +4836,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206)" package="LED-1206">
@@ -4746,7 +4847,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 <device name="(1206_REVERSE-MOUNT)" package="LED-1206-BOTTOM">
@@ -4755,7 +4858,9 @@ Switches electrical signals</description>
 <connect gate="D1" pin="C" pad="C"/>
 </connects>
 <technologies>
-<technology name=""/>
+<technology name="">
+<attribute name="GREATBIGFACTORY" value="1" constant="no"/>
+</technology>
 </technologies>
 </device>
 </devices>

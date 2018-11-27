@@ -31,6 +31,12 @@ $('#aboutlink').click(loadAbout);
 $('#infolink').click(loadInfo);
 $('#quotelink').click(loadQuote);
 $('#bomfile').change(bomReader);
+$('#eagle-icon').click(function(){
+	window.open('files/GreatBigFactory.lbr','_blank');
+});
+$('#kicad-icon').click(function(){
+	window.open('files/GreatBigFactory.rar','_blank');
+});
 
 validateSession(docCookies.getItem('sessionID'));
 
@@ -139,36 +145,15 @@ function bomReader(){
 	file = input.files[0];
     fr = new FileReader();
     fr.onload = function(e){
-		var extension = file.name.split('.').pop().toLowerCase();
-		
-		switch(extension){
-
-			case 'csv':
-				bomProcessor(fr.result, 1);
-				break;
-			default:
-			
-				if( file.name.includes('.') ){
-					$('#uploadtitle').text('This does not seem to be an EAGLE (no extension) or KiCAD BOM (.csv) file.');
-				}else{
-					bomProcessor(fr.result, 0);
-				}
-				break;
-				
+		if(fr.result.split('"')[1].toLowerCase() == 'part'){
+			parseEagle(fr.result);
+		}else if(fr.result.split('"')[1].toLowerCase() == 'id'){
+			parseKiCad(fr.result);
+		}else{
+			alert("This file doesn't seem to be a BOM");
 		}
 	};
     fr.readAsText(file);
-	
-}
-
-function bomProcessor(bom, type) {
-	
-	if(type == 0){
-		parseEagle(bom);
-	}
-	if(type == 1){
-		parseKiCad(bom);
-	}
 	
 }
 
@@ -193,8 +178,8 @@ function parseKiCad(bom){
 					bomObject.push({
 						
 						designator: designator.replace('"','').replace('"',''),
-						package: linesplit[2].replace('"','').replace('"',''),
-						value: linesplit[4].replace('"','').replace('"',''),
+						package: linesplit[2].replace('"','').replace('"','').slice(0,27),
+						value: linesplit[4].replace('"','').replace('"','').slice(0,27),
 						instruction: 'dnp'
 						
 					});
@@ -221,22 +206,51 @@ function parseEagle(bom){
 	
 	bomObject = [];
 	
-	bom.split("Orientation")[1].split("\n").forEach(function(line){
+	var bomIndex = 1;
+
+	var GBFIndex = 0;
+	
+	bom.split("\n").forEach(function(line, index){
 		
-		var linesplit = line.replace(/\s+/g, ' ').split(' ');
+		if(index==0){
 			
-		if(linesplit[0] != '' && linesplit[0] != undefined){
+			if(line.toLowerCase().includes('greatbigfactory')){
+				
+				line.toLowerCase().split(';').forEach(function(val, idx){
+					
+					if(val.includes('greatbigfactory')){
+						GBFIndex = idx;
+					}
+					
+				});
+				
+			}
 			
-					bomObject.push({
-						
-						designator: linesplit[0].replace('"','').replace('"',''),
-						package: linesplit[2].replace('"','').replace('"',''),
-						value: linesplit[1].replace('"','').replace('"',''),
-						instruction: 'dnp'
-						
-					});
+		}
+		
+		if(index>0){
+		
+		var linesplit = line.split(';');
+		
+		if(linesplit != '' && linesplit != undefined){
+		
+		var inlib = (GBFIndex != 0) ? linesplit[GBFIndex] : 0;
+	
+				bomObject.push({
+					
+					designator: linesplit[0].replace('"','').replace('"',''),
+					package: linesplit[3].replace('"','').replace('"','').slice(0,27),
+					value: linesplit[2].replace('"','').replace('"','').slice(0,27),
+					instruction: 'dnp',
+					inlibrary: inlib
+					
+				});
+			
+			}
 		
 		}
+					
+		bomIndex++;
 			
 	});
 	
